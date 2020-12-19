@@ -2,175 +2,210 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        * {
-            padding: 0;
-            margin: 0;
-        }
-        
-        #logo {
-            padding: 0 15px;
-            text-align: center;
-            line-height: 70px;
-        }
-        
-        #nav {
-            width: 100vw;
-            height: 70px;
-            background-color: #b7c9ea;
-            position: fixed;
-            top: 0;
-            left: 0;
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-        }
-        
-        #items {
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            flex-grow: 2;
-            padding: 0 20px;
-        }
-        
-        #items .item {
-            height: 70px;
-            line-height: 70px;
-            text-align: center;
-            padding: 0 10px;
-            position: relative;
-        }
-        
-        #items .item a {
-            display: block;
-            color: #000;
-            text-transform: uppercase;
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-        
-        #items .item:hover a {
-            color: #fff;
-        }
-        
-        #items .item::before {
-            content: "";
-            position: absolute;
-            width: 100%;
-            height: 0;
-            top: 0;
-            left: 0;
-            z-index: -1;
-            background-color: rgba(255, 152, 241, 0.89);
-            transition: all 0.5s;
-        }
-        
-        #items .item:hover::before {
-            height: 100%;
-        }
-        
-        @media (max-width: 1000px) {
-            #logo {
-                width: 100%;
-            }
-            #items {
-                width: 100%;
-                height: 100vh;
-                position: absolute;
-                top: 70px;
-                left: -100%;
-                flex-direction: column;
-                justify-content: flex-start;
-                transition: all 0.4s ease;
-                background-color: #b7c9ea;
-                padding: 0;
-            }
-            #items.active {
-                left: 0;
-            }
-            #items .item {
-                width: 100%;
-                padding: 0;
-            }
-            #menu {
-                width: 50px;
-                height: 50px;
-                position: absolute;
-                top: 10px;
-                right: 10px;
-                border: 1px solid rgb(180, 238, 224);
-            }
-            #menu span {
-                width: 34px;
-                height: 4px;
-                background-color: rgb(180, 238, 224);
-                position: absolute;
-                transition: all 0.3s ease;
-            }
-            #menu span:nth-child(1) {
-                top: 10px;
-                left: 8px;
-            }
-            #menu span:nth-child(2) {
-                top: 23px;
-                left: 8px;
-            }
-            #menu span:nth-child(3) {
-                top: 36px;
-                left: 8px;
-            }
-            #menu.active span:nth-child(1) {
-                transform: rotate(45deg);
-                top: 23px;
-            }
-            #menu.active span:nth-child(2) {
-                opacity: 0;
-            }
-            #menu.active span:nth-child(3) {
-                transform: rotate(-45deg);
-                top: 23px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    #logo {
+      padding: 0 15px;
+      text-align: center;
+      line-height: 70px;
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+
+    #logo .logoimg {
+      position: absolute;
+      left: 0;
+      width: 70px;
+      height: 70px;
+      background: red;
+    }
+
+    #logo .text {
+      width: 60%;
+      background: rgb(179, 216, 179);
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    #nav {
+      width: 100vw;
+      height: 70px;
+      background-color: #b7c9ea;
+      position: fixed;
+      top: 0;
+      left: 0;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    #items {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      flex-grow: 2;
+      padding: 0 20px;
+    }
+
+    #items .item {
+      height: 70px;
+      line-height: 70px;
+      text-align: center;
+      padding: 0 10px;
+      position: relative;
+    }
+
+    #items .item a {
+      display: block;
+      color: #000;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+
+    #items .item:hover a {
+      color: #fff;
+    }
+
+    #items .item::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 0;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      background-color: rgba(255, 152, 241, 0.89);
+      transition: all 0.5s;
+    }
+
+    #items .item:hover::before {
+      height: 100%;
+    }
+
+    @media (max-width: 1000px) {
+      #logo {
+        width: 100%;
+      }
+
+      #items {
+        width: 100%;
+        height: 100vh;
+        position: absolute;
+        top: 70px;
+        left: -100%;
+        flex-direction: column;
+        justify-content: flex-start;
+        transition: all 0.4s ease;
+        background-color: #b7c9ea;
+        padding: 0;
+      }
+
+      #items.active {
+        left: 0;
+      }
+
+      #items .item {
+        width: 100%;
+        padding: 0;
+      }
+
+      #menu {
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        border: 1px solid rgb(180, 238, 224);
+      }
+
+      #menu span {
+        width: 34px;
+        height: 4px;
+        background-color: rgb(180, 238, 224);
+        position: absolute;
+        transition: all 0.3s ease;
+      }
+
+      #menu span:nth-child(1) {
+        top: 10px;
+        left: 8px;
+      }
+
+      #menu span:nth-child(2) {
+        top: 23px;
+        left: 8px;
+      }
+
+      #menu span:nth-child(3) {
+        top: 36px;
+        left: 8px;
+      }
+
+      #menu.active span:nth-child(1) {
+        transform: rotate(45deg);
+        top: 23px;
+      }
+
+      #menu.active span:nth-child(2) {
+        opacity: 0;
+      }
+
+      #menu.active span:nth-child(3) {
+        transform: rotate(-45deg);
+        top: 23px;
+      }
+    }
+  </style>
 </head>
 
 <body>
-    <div id="nav">
-        <div id="logo">
-            LOGO
-            <!-- 这里是按钮 -->
-            <div id="menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-        <div id="items">
-            <div class="item"><a href="javascript:;">homepage</a></div>
-            <div class="item"><a href="javascript:;">about</a></div>
-            <div class="item"><a href="javascript:;">article</a></div>
-            <div class="item"><a href="javascript:;">message</a></div>
-            <div class="item"><a href="javascript:;">timemline</a></div>
-            <div class="item"><a href="javascript:;">setting</a></div>
-        </div>
+  <div id="nav">
+    <div id="logo">
+      <div class="logoimg">
+        <img src="" />
+      </div>
+      <div class="text">
+        这里是文字,这里是文字这里是文字这里是文字这里是文字
+      </div>
+      <!-- 这里是按钮 -->
+      <div id="menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </div>
-    <script>
-        var menu = document.getElementById('menu')
-        var items = document.getElementById('items')
-        menu.onclick = function() {
-            if (menu.classList.contains('active')) {
-                menu.classList.remove('active')
-                items.classList.remove('active')
-            } else {
-                menu.classList.add('active')
-                items.classList.add('active')
-            }
-        }
-    </script>
+    <div id="items">
+      <div class="item"><a href="javascript:;">homepage</a></div>
+      <div class="item"><a href="javascript:;">about</a></div>
+      <div class="item"><a href="javascript:;">article</a></div>
+      <div class="item"><a href="javascript:;">message</a></div>
+      <div class="item"><a href="javascript:;">timemline</a></div>
+      <div class="item"><a href="javascript:;">setting</a></div>
+    </div>
+  </div>
+  <script>
+    var menu = document.getElementById('menu')
+    var items = document.getElementById('items')
+    menu.onclick = function () {
+      if (menu.classList.contains('active')) {
+        menu.classList.remove('active')
+        items.classList.remove('active')
+      } else {
+        menu.classList.add('active')
+        items.classList.add('active')
+      }
+    }
+  </script>
 </body>
 
 </html>

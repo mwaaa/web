@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            height: 100vh;
+            background: rgb(143, 218, 255);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #menu {
+            width: 50px;
+            height: 50px;
+            position: relative;
+            border: 1px solid black;
+        }
+
+        #menu span {
+            width: 34px;
+            height: 4px;
+            background-color: black;
+            position: absolute;
+            transition: all 0.3s ease;
+        }
+
+        #menu span:nth-child(1) {
+            top: 10px;
+            left: 8px;
+        }
+
+        #menu span:nth-child(2) {
+            top: 23px;
+            left: 8px;
+        }
+
+        #menu span:nth-child(3) {
+            top: 36px;
+            left: 8px;
+        }
+
+        #menu.active span:nth-child(1) {
+            transform: rotate(45deg);
+            top: 23px;
+        }
+
+        #menu.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        #menu.active span:nth-child(3) {
+            transform: rotate(-45deg);
+            top: 23px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <script>
+        var menu = document.getElementById('menu')
+        menu.onclick = function () {
+            if (menu.classList.contains('active')) {
+                menu.classList.remove('active')
+            } else {
+                menu.classList.add('active')
+            }
+        }
+    </script>
+</body>
+
+</html>
